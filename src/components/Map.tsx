@@ -42,12 +42,13 @@ function MapContent() {
       navigator.geolocation.watchPosition(
         (pos) => {
           const latLng = new LatLng(pos.coords.latitude, pos.coords.longitude);
-          map.setView(latLng, 20, { animate: true, noMoveStart: true });
+          map.setView(latLng, 20, { animate: true, noMoveStart: false });
           setCenter(latLng);
         },
         (err) => {
           console.log(err);
-        }
+        },
+        { enableHighAccuracy: true }
       );
     }
 
